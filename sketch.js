@@ -1,6 +1,6 @@
 function checkForWinner() {
   console.log("checking for winner...")
-  var winner
+  var wins
   var playerOne = getPlayerOne() //playerOne is always blue!
     //console.log('checkForWinner, playerOne is: ', playerOne)
 var computer = (playerOne === "X") ? "O" : "X"
@@ -36,34 +36,34 @@ var redCount = getRedCount()
   console.log('fullGrid is: ', fullGrid)
 var draw = (fullGrid === 9) && (!blueWins) && (!redWins)
 if (blueWins) { //playerOne is always blue
-    winner = blueWins
+    wins = blueWins
     console.log(`${playerOne} wins!`)
     $("#gameResult, #congratsOrSorry").removeClass("displayNone")
     $("#gameResult").html(`<span class='yellowBig'>${playerOne} wins!</span>`)
     $("#congratsOrSorry").html("<span class='yellow'>Congratulations! You won!</span>")
     $("#gameInfo").addClass("displayNone")
     disableRemainingItems()
-    return winner
+    return wins
   }
   if (redWins) { //red is computer
-    winner = redWins
+    wins = redWins
     console.log(`${computer} wins!`)
     $("#gameResult, #congratsOrSorry").removeClass("displayNone")
     $("#gameResult").html(`<span class='redBig'>${computer} wins!</span>`)
     $("#congratsOrSorry").html("<span class='red'>Sorry, you lost.</span>")
     $("#gameInfo").addClass("displayNone")
     disableRemainingItems()
-    return winner
+    return wins
   }
   if (draw) {
-    winner = draw
+    wins = draw
     console.log('Draw game!')
     $("#gameResult, #congratsOrSorry").removeClass("displayNone")
     $("#gameResult").html(`<span class='redBig'>Game is a draw.</span>`)
     $("#congratsOrSorry").html("<span>Game ended in a draw.</span>")
     $("#gameInfo").addClass("displayNone")
     disableRemainingItems()
-    return winner
+    return wins
   } else {
     console.log('game on...')
   }
